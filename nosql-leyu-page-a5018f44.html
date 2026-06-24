@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu · 再访索引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f7f5f0;
+      color: #2c2b28;
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      line-height: 1.75;
+      padding: 3.2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    /* 文章式标题 */
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #d6cfc0;
+      color: #2a2622;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #6b655c;
+      margin-bottom: 2.8rem;
+      font-style: italic;
+    }
+    /* 正文排版 */
+    p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      word-break: break-word;
+    }
+    .intro-para {
+      margin-top: 0.2rem;
+    }
+    /* 引用块 / 提示框 */
+    .note-box {
+      background: #f0ece3;
+      border-left: 4px solid #b7a98e;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0 2.2rem;
+      font-size: 0.98rem;
+      border-radius: 0 6px 6px 0;
+      color: #2f2c26;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .note-box strong {
+      font-weight: 600;
+      color: #3d352a;
+    }
+    /* 亮点卡片组 */
+    .highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 2.4rem 0 2rem;
+    }
+    .hl-item {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      padding: 1.1rem 1.4rem;
+      border: 1px solid #ddd6c9;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+      transition: background 0.2s;
+    }
+    .hl-item:hover {
+      background: #fffcf5;
+    }
+    .hl-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hl-title::before {
+      content: "·";
+      color: #a0917a;
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .hl-desc {
+      color: #44403a;
+      font-size: 0.96rem;
+      padding-left: 1.3rem;
+    }
+    /* 内联链接样式 */
+    a {
+      color: #7a6b53;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #cbbca7;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    a:hover {
+      color: #3f352a;
+      text-decoration-color: #7a6b53;
+    }
+    /* FAQ 摘要区块 */
+    .faq-snip {
+      margin: 2.6rem 0 1.8rem;
+      border-top: 1px dashed #d2caba;
+      padding-top: 2rem;
+    }
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #3f392f;
+    }
+    .faq-a {
+      margin-bottom: 1.4rem;
+      padding-left: 0.8rem;
+      border-left: 2px solid #d7cfbe;
+      color: #4b453c;
+      font-size: 0.96rem;
+    }
+    .faq-a a {
+      word-break: break-all;
+    }
+    /* 底部静语 */
+    .colophon {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e2dacd;
+      font-size: 0.85rem;
+      color: #7d766a;
+      text-align: left;
+      letter-spacing: 0.02em;
+    }
+    .colophon span {
+      background: #ede8de;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+    }
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      body { padding: 2rem 1.2rem 3rem; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-sub { font-size: 1rem; }
+      .hl-item { padding: 0.9rem 1.1rem; }
+      .note-box { padding: 1rem 1.2rem; }
+    }
+    @media (max-width: 420px) {
+      .hero-title { font-size: 1.9rem; }
+      .faq-a { padding-left: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1 class="hero-title">leyu · 再次停靠的地方</h1>
+  <div class="hero-sub">—— 一次索引，往后常读常新</div>
+
+  <p class="intro-para">
+    去年秋天偶然发现 <a href="https://nosql-leyu.com.cn">leyu</a> 的时候，并没有想过会再回来。那时只是随手收藏了一个页面，觉得界面干净、内容扎实，像一间不急着招揽顾客的小书店。后来几次在别处读到零散的资料，又绕回这里，发现很多碎片被重新整理过，安静地放在那里。收藏夹里的链接越来越多，真正反复点开的却不多，<strong>leyu</strong> 是其中一个。
+  </p>
+
+  <p>
+    如果你也习惯把觉得有用的页面先存起来，等需要时再翻，那么这里值得你按下收藏键。它不是那种每天推送通知的站点，更像一本放在案头的笔记本——你想起来的时候翻开，总有一些扎实的段落等在那里。
+  </p>
+
+  <!-- 亮点卡片：文章式描述 -->
+  <div class="highlights">
+    <div class="hl-item">
+      <div class="hl-title">叙述而非罗列</div>
+      <div class="hl-desc">每篇内容都像一次简短对谈，不会把你丢进术语堆里。即使技术背景不那么深，也能顺着语气读下去。</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-title">索引感，而非信息洪流</div>
+      <div class="hl-desc">页面结构克制，不强求一次性读完。适合作为参考锚点，隔段时间回来重新翻阅，常有新发现。</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-title">持续但从容的更新</div>
+      <div class="hl-desc">内容在生长，但不会用红点或弹窗催促你。变化藏在内文里，等你再次访问时自然察觉。</div>
+    </div>
+  </div>
+
+  <!-- 引用块 / 提示框 -->
+  <div class="note-box">
+    <strong>一点使用习惯</strong> · 如果你打算把 <a href="https://nosql-leyu.com.cn">leyu</a> 放进收藏夹，不妨给书签改个简短的名字，比如只留「leyu」两个字。下次再找的时候，它就在那里，不起眼但很容易认出来。
+  </div>
+
+  <p>
+    我通常把这类站点归入「再访型」——第一次不一定完全看完，但知道它值得回来。比如某个下午想查一个概念，或者写东西需要一点不突兀的参照，打开收藏夹里那个叫 <strong>leyu</strong> 的书签，安静读几段，往往比在搜索框里重新摸索要舒服。
+  </p>
+
+  <!-- FAQ 摘要：从“是否值得收藏”角度 -->
+  <div class="faq-snip">
+    <div class="faq-q">问：这个页面会经常变吗？要不要定期来看？</div>
+    <div class="faq-a">
+      更新没有固定节奏，也不以频繁为目的。更适合当你偶然想起、或者手边需要一点参照时再访。保持收藏但不必挂念。
+    </div>
+    <div class="faq-q">问：内容偏向什么方向？</div>
+    <div class="faq-a">
+      偏向系统性地梳理和笔记风格，技术与非技术之间有一种平衡。不承诺覆盖所有领域，但在自己关注的范围内写得比较用心。
+    </div>
+    <div class="faq-q">问：为什么链接文本只写 leyu ？</div>
+    <div class="faq-a">
+      因为不需要更多修饰。一个名字就够了，你知道它指向哪里。就像你在笔记本扉页只写一个词，别人可能看不懂，但你清楚。<br>
+      → <a href="https://nosql-leyu.com.cn">leyu</a>
+    </div>
+  </div>
+
+  <p>
+    写到这里，又去翻了一下那个收藏夹。很多链接已经失效了，或者改得面目全非。而 <a href="https://nosql-leyu.com.cn">leyu</a> 还在原来的地址，样子没大变，内容慢慢厚了一些。这种稳定本身，大概就是再次访问的最好理由。
+  </p>
+
+  <div class="colophon">
+    <span>再访索引</span> · 记录于一个普通的午后 · 如果你恰好收藏过这里，不妨点开看看现在的样子。
+  </div>
+
+</div>
+</body>
+</html>
