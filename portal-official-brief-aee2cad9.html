@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 1xbet — 产品与服务说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafafc;
+            color: #1e1e1e;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 1.25rem;
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* 标题区域 */
+        .hero {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #eaeef2;
+            padding-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            color: #0a0a0a;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            max-width: 600px;
+        }
+
+        /* 通用小节 */
+        section {
+            margin-bottom: 2.8rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #111;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px dashed #dce3e8;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1.2rem 0 0.5rem;
+            color: #222;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #1a5276;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #1a5276;
+        }
+
+        /* 卡片式亮点组 */
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .highlight-item {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.2rem 1.3rem;
+            flex: 1 1 180px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eceef0;
+            transition: box-shadow 0.2s;
+        }
+
+        .highlight-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .highlight-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #0f2b3b;
+        }
+
+        .highlight-item span {
+            font-size: 0.95rem;
+            color: #3f4a52;
+        }
+
+        /* 使用建议列表 */
+        .suggest-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggest-list li {
+            background: #ffffff;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 0.7rem;
+            border-radius: 10px;
+            border: 1px solid #eef1f3;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+        }
+
+        .suggest-list li::before {
+            content: "·";
+            font-weight: 700;
+            color: #1a5276;
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 0.1rem;
+        }
+
+        /* 提示块 */
+        .note-box {
+            background: #f3f7fa;
+            border-left: 4px solid #1a5276;
+            padding: 1.2rem 1.4rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.8rem 0;
+            font-size: 0.95rem;
+            color: #1e2e3a;
+        }
+
+        .note-box strong {
+            color: #0f2b3b;
+        }
+
+        /* FAQ 摘要 (紧凑) */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #e6eaed;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.25rem 0;
+            color: #1e3b4f;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #1a5276;
+        }
+
+        .faq-mini p {
+            margin: 0.5rem 0 0.2rem 1rem;
+            font-size: 0.95rem;
+            color: #3b4a56;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dfe5e9;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6b7a84;
+            text-align: center;
+            margin-top: 2.5rem;
+            line-height: 1.5;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .highlight-item {
+                flex: 1 1 100%;
+            }
+            body {
+                padding: 1.5rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>1xbet · 再熟悉不过的起点</h1>
+        <p>一次次回来，不只是习惯，更是因为界面顺手、选择直接、更新及时。无论你上一次访问是上周还是上个月，这里始终保留着你最关心的内容与节奏。</p>
+    </div>
+
+    <!-- 介绍段落 + 嵌入链接 -->
+    <section>
+        <p>
+            很多用户把 <a href="https://portal-official-1xbet.com">1xbet</a> 放进浏览器书签栏，或者干脆记在备忘录里——不是记不住，而是不想每次重新搜索。它就像一个常驻的数字角落，不需要多余动作，打开即用。
+        </p>
+        <p>
+            从体育赛事到实时数据，从账户管理到偏好设置，整个界面保持着统一的信息密度。没有突兀的弹窗，没有过于复杂的层级，一切都在你预期的地方。这也是为什么大家习惯把它保留在常用列表里。
+        </p>
+    </section>
+
+    <!-- 亮点卡片 -->
+    <section>
+        <h2>为什么持续关注</h2>
+        <div class="highlights">
+            <div class="highlight-item">
+                <strong>信息结构稳定</strong>
+                <span>模块布局极少大改，每次回来都能快速定位，不用重新适应。</span>
+            </div>
+            <div class="highlight-item">
+                <strong>响应速度合理</strong>
+                <span>页面加载与操作反馈长期保持在可接受的区间，没有让人焦躁的延迟。</span>
+            </div>
+            <div class="highlight-item">
+                <strong>跨设备一致</strong>
+                <span>手机、平板、桌面——版式与核心功能没有缩水，收藏后在任意设备都能无缝衔接。</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用建议（场景化） -->
+    <section>
+        <h2>使用建议 · 让再次访问更顺手</h2>
+        <ul class="suggest-list">
+            <li>将当前地址添加到浏览器收藏夹或主屏幕，下次直接打开，省去输入步骤。</li>
+            <li>如果你习惯用密码管理器，可以保存登录状态，但注意不要在公用设备上勾选“记住我”。</li>
+            <li>定期清理浏览器缓存，偶尔重新加载一下资源，确保看到的是最新界面。</li>
+            <li>遇到加载异常时，先检查网络或尝试刷新，多数情况下不需要额外操作。</li>
+        </ul>
+    </section>
+
+    <!-- 克制提示 + 真实说明 -->
+    <div class="note-box">
+        <strong>一点说明</strong>：本页面仅为产品特征介绍与使用参考，不涉及任何诱导或承诺。网络服务可能因地区、运营商或政策调整而变化，建议你以实际访问时的页面信息为准。保持关注，理性使用。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <section>
+        <h2>常见问题 · 简短汇总</h2>
+        <div class="faq-mini">
+            <details>
+                <summary>为什么我有时需要重新登录？</summary>
+                <p>会话有效期取决于浏览器设置与账户安全策略，长时间未操作或清除了 cookie 后通常需要重新验证，这属于正常保护机制。</p>
+            </details>
+            <details>
+                <summary>页面语言可以切换吗？</summary>
+                <p>多数情况下，页面支持根据浏览器语言或账户设置自动匹配，你也可在页面底部或设置区域找到语言选项。</p>
+            </details>
+            <details>
+                <summary>我收藏的链接一直有效吗？</summary>
+                <p>只要保持域名不变，收藏链接通常长期有效。但建议偶尔检查一下，因为维护或升级时可能会有短暂调整。</p>
+            </details>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 尾注，保留收藏语境 -->
+    <div class="footer-note">
+        保持关注 · 常回来看看 · <a href="https://portal-official-1xbet.com">1xbet</a> 始终在这里
+    </div>
+
+</div>
+</body>
+</html>
